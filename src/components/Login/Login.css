@@ -1,0 +1,32 @@
+.Login{
+    width: 70%;
+
+}
+.Empleado{
+    border-top-width: 5px !important;
+    border-top: solid;
+    border-top-color: #6c757d !important;
+}
+.Empleado:focus{
+    border-top-color: #ed6003 !important;
+    border-top-width: 5px ;
+}
+.Gestor{
+    border-top-width: 5px ;
+    border-top: solid;
+    border-top-color: #6c757d !important;
+}
+.Gestor:focus{
+    border-top-color: #ed6003 !important;
+    border-top-width: 5px ;
+}
+input{
+    background-color: gainsboro !important;
+}
+input:focus{
+    border-color: #ed6003 !important;
+    box-shadow: 0 0 5px rgba(207, 220, 0, 0.4) !important;
+}
+.tab-content,nav-tabs{
+    background-color: white !important;
+}

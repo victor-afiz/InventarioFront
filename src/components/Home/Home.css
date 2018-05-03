@@ -1,0 +1,42 @@
+.Home-logo {
+  height: 70px;
+  float: left;
+  margin-left: 10%;
+}
+.panel{
+  margin-top: 5%;
+}
+.panel-login{
+  /*border-color: #ea7119;*/
+
+}
+.Home-header {
+  background-color: #fff;
+  height: 70px;
+  width: auto;
+  color: white;
+  background-image:url('../../general.png');
+  background-repeat: no-repeat;
+  background-size: 200px;
+  
+}
+body{
+background-image: url(//cdn.pccomponentes.com/img/fondos/back_pc.jpg);
+}
+.btn{
+  background-color: #ff6000 !important;
+}
+.btn:hover{
+  background-color: #ed6003 !important;
+}
+.forum{
+
+  padding: 5px;
+}
+.Home-title {
+  font-size: 1.5em;
+}
+
+.Home-intro {
+  font-size: large;
+}
