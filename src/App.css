@@ -3,15 +3,29 @@
   float: left;
   margin-left: 10%;
 }
-
+.login{
+  margin-top: 10%;
+}
 .App-header {
   background-color: #fff;
-  height: 60px;
-  padding: 20px;
+  height: 70px;
+  width: auto;
   color: white;
-  margin-top: 10px;
+  background-image:url('./general.png');
+  background-repeat: no-repeat;
+  background-size: 200px;
+  
+}
+.panel{
+  background-color: black;
+  opacity: 0.3;
 }
 
+.forum{
+
+  background-color: white;
+  padding: 50px;
+}
 .App-title {
   font-size: 1.5em;
 }

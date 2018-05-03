@@ -1,17 +1,37 @@
 import React, { Component } from 'react';
-import logo from './general.png';
+
 import './App.css';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header col-sm-6">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+        <header className="App-header">
         </header>
         <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
+            <div className="row login">
+                <div className="col-1">
+
+                </div>
+                <div className="col-10">
+                    <div className="row">
+                        <div className="col-7 panel">
+                            <hr/>
+                        </div>
+                        <div className="col-5 form-group">
+                            <form className="forum">
+                                <input type="text" placeholder="Nombre"  name="name" />
+                                <br/>
+                                <input type="password" placeholder="Contraseña" name="name" />
+                                <input type="submit" class="btn btn-warning btn-block" value="Entrar" />
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div className="col-1">
+
+                </div>
+            </div>
         </p>
       </div>
     );
