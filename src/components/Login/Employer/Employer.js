@@ -4,11 +4,7 @@ import './Employer.css';
 
 class Employer extends Component
 {
-    constructor(props)
-    {
-        super(props);
-        this.handleClick = this.handleClick.bind(this);
-    }
+
     render() {
         return(
 
@@ -18,7 +14,7 @@ class Employer extends Component
                         <br/>
                         <input type="password" className="form-control" placeholder="Contraseña*" name="name" />
                         <br/>
-                        <input type="submit" onPress={this.handleClick} className="btn btn-warning btn-block" value="Entrar" />
+                        <input type="submit"  className="btn btn-warning btn-block" value="Entrar" />
                         <br/>
                     </form>
                 </div>
