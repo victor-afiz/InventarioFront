@@ -1,15 +1,20 @@
 import React, { Component } from 'react';
-import FaHome from 'react-icons/lib/fa/home';
 import FaGroup from 'react-icons/lib/fa/group';
 import FaUser from 'react-icons/lib/fa/user';
 import FaList from 'react-icons/lib/fa/list';
+import FaArchive from 'react-icons/lib/fa/archive';
+import { Icon } from 'react-icons-kit'
+import {tshirt} from 'react-icons-kit/ionicons/tshirt'
 class Menu extends Component
 {
 
     render(){
         return (
             <nav className="navbar navbar-expand-sm bg-dark navbar-dark">
-
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul className="navbar-nav">
                     <li className="nav-item dropdown">
                         <a className="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
@@ -24,7 +29,7 @@ class Menu extends Component
                     </li>
                     <li className="nav-item dropdown">
                         <a className="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                             Prendas
+                            <Icon icon={tshirt} />Prendas
                         </a>
                         <div className="dropdown-menu">
                             <a className="dropdown-item" href="#">Añadir Prenda Nuevo</a>
@@ -46,7 +51,7 @@ class Menu extends Component
                     </li>
                     <li className="nav-item dropdown">
                         <a className="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                            Stock
+                            <FaArchive/>  Stock
                         </a>
                         <div className="dropdown-menu">
                             <a className="dropdown-item" href="#">Añadir Stock</a>
@@ -65,6 +70,7 @@ class Menu extends Component
                         </div>
                     </li>
                 </ul>
+                </div>
             </nav>
         );
     }

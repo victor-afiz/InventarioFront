@@ -1,32 +1,109 @@
 import  React, { Component } from 'react';
 
 import './Login.css';
-import Employer from '../Login/Employer/Employer';
-import Manager from '../Login/Manager/Manager';
+
+
 class Login extends Component
 {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            whoisLog: true,
+            checkIfLoged: this.props.checkIfLoged,
+            changeParentLogin: "",
+            email: "",
+            password: "",
+            managers: this.props.managers
+        };
+        this.handleToggleClick = this.handleToggleClick.bind(this);
+        this.handleToggleChangeUser = this.handleToggleChangeUser.bind(this);
+        this.handleChangeParentLoginResult = this.handleChangeParentLoginResult.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+
+    }
+
+    handleChangeParentLoginResult = (event) =>{
+        const change =this.props.checkIfLoged ? false : true;
+        this.props.changeParentLogin( change );
+    };
+
+    handleToggleClick() {
+        this.setState(prevState => ({
+            checkIfLoged: !prevState.checkIfLoged
+        }));
+    }
+
+    handleToggleChangeUser(){
+        this.setState(whoisLogin => ({
+            whoisLog: !whoisLogin.whoisLog
+        }));
+    }
+    handleChange(event) {
+        this.setState({value: event.target.email});
+        this.setState({value: event.target.password});
+        console.log(event.target.password);
+    }
+
+    handleSubmit(event) {
+        alert('An essay was submitted: ' + this.state.value);
+        event.preventDefault();
+    }
+
+    handleCallTest() {
+        fetch("http://127.0.0.1:8000/Manager/")
+            .then(res => res.json())
+            .then(
+                (result) => {
+                    // this.setState({
+                    //     isLoaded: true,
+                    //     items: result.items
+                    // });
+                    console.log(result);
+                },
+                // Note: it's important to handle errors here
+                // instead of a catch() block so that we don't swallow
+                // exceptions from actual bugs in components.
+                (error) => {
+                    this.setState({
+                        isLoaded: true,
+                        error
+                    });
+                    console.log(error);
+                }
+            )
+    }
+
     render() {
-        return(
-            <div className="container mt-3 Login">
+            return(
+                <div className="container  Login">
 
-                <ul class="nav nav-tabs">
+                    <ul className="nav nav-tabs">
 
-                    <li class="nav-item">
-                        <a class="nav-link active Empleado" data-toggle="tab" href="#menu1">Empleado</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link Gestor" data-toggle="tab" href="#menu2">Gestor</a>
-                    </li>
-                </ul>
-                <div class="tab-content">
-                    <br/>
-                    <Employer/>
-                    <Manager/>
+                        <li className="nav-item" onClick={this.handleToggleChangeUser} >
+                            <a className="nav-link active Empleado" data-toggle="tab" href="#menu1">Empleado</a>
+                        </li>
+                        <li className="nav-item" onClick={this.handleToggleClick}>
+                            <a className="nav-link Gestor" data-toggle="tab" href="#menu2">Gestor</a>
+                        </li>
+                    </ul>
+                    <div className="tab-content">
+                        <br/>
+                        <div id="menu1" className="container tab-pane active form-group">
+                            <form className="forum" >
+                                <input type="email" email={this.state.email} onChange={this.handleChange} className="form-control" placeholder="Email*" id="email" />
+                                <br/>
+                                <input type="password" password={this.state.password} onChange={this.handleChange} className="form-control" placeholder="Contraseña*" name="name" />
+                                <br/>
+                                <button type="submit" onClick={this.handleChangeParentLoginResult} className="btn btn-warning btn-lg btn-block">Entrar</button>
+                                <br/>
+                            </form>
+                        </div>
 
+                    </div>
                 </div>
-            </div>
-        );
-
+            );
     }
 }
 export default Login;
