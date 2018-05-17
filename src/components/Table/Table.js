@@ -2,7 +2,7 @@ import  React, { Component } from 'react';
 
 import './Table.css';
 
-const JsonTable = require();
+const JsonTable = require('ts-react-json-table');
 
 class Table extends Component
 {

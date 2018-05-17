@@ -39,15 +39,20 @@ class Login extends Component
             whoisLog: !whoisLogin.whoisLog
         }));
     }
-    handleChange(event) {
-        this.setState({value: event.target.email});
-        this.setState({value: event.target.password});
-        console.log(event.target.password);
-    }
+
+    handleChange (e) {
+        const name = e.target.name;
+        const value = e.target.value;
+        this.setState({
+            [name]: value
+        })
+        console.log(this.state.email);
+        console.log(this.state.password);
+    };
 
     handleSubmit(event) {
-        alert('An essay was submitted: ' + this.state.value);
-        event.preventDefault();
+        console.log(this.state.email);
+        console.log(this.state.password);
     }
     render() {
             return(
@@ -65,10 +70,10 @@ class Login extends Component
                     <div className="tab-content">
                         <br/>
                         <div id="menu1" className="container tab-pane active form-group">
-                            <form className="forum" >
-                                <input type="email" email={this.state.email} onChange={this.handleChange} className="form-control" placeholder="Email*" id="email" />
+                            <form className="forum" onSubmit={this.handleSubmit} >
+                                <input type="email" value={this.state.email} onChange={this.handleChange} className="form-control" placeholder="Email*" id="email" name="email"/>
                                 <br/>
-                                <input type="password" password={this.state.password} onChange={this.handleChange} className="form-control" placeholder="Contraseña*" name="name" />
+                                <input type="password"  value={this.state.password} onChange={this.handleChange} className="form-control" placeholder="Contraseña*" name="password" />
                                 <br/>
                                 <button type="submit" onClick={this.handleChangeParentLoginResult} className="btn btn-warning btn-lg btn-block">Entrar</button>
                                 <br/>
