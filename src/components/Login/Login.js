@@ -13,8 +13,7 @@ class Login extends Component
             checkIfLoged: this.props.checkIfLoged,
             changeParentLogin: "",
             email: "",
-            password: "",
-            managers: this.props.managers
+            password: ""
         };
         this.handleToggleClick = this.handleToggleClick.bind(this);
         this.handleToggleChangeUser = this.handleToggleChangeUser.bind(this);
@@ -50,31 +49,6 @@ class Login extends Component
         alert('An essay was submitted: ' + this.state.value);
         event.preventDefault();
     }
-
-    handleCallTest() {
-        fetch("http://127.0.0.1:8000/Manager/")
-            .then(res => res.json())
-            .then(
-                (result) => {
-                    // this.setState({
-                    //     isLoaded: true,
-                    //     items: result.items
-                    // });
-                    console.log(result);
-                },
-                // Note: it's important to handle errors here
-                // instead of a catch() block so that we don't swallow
-                // exceptions from actual bugs in components.
-                (error) => {
-                    this.setState({
-                        isLoaded: true,
-                        error
-                    });
-                    console.log(error);
-                }
-            )
-    }
-
     render() {
             return(
                 <div className="container  Login">

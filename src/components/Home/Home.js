@@ -17,6 +17,7 @@ class Home extends Component
             maganers : ""
         };
     }
+
     changeloger = (bol) => {
         this.setState({login : bol});
         console.log(this.state.login);
@@ -27,6 +28,26 @@ class Home extends Component
         console.log(this.state.maganers);
     };
 
+    componentDidMount() {
+
+        fetch("http://127.0.0.1:8000/Manager/")
+            .then(res => res.json())
+            .then(
+                (res) => {
+                    this.setState({
+                        maganers: res
+                    });
+                    // console.log(this.state.maganers);
+                },
+                (error) => {
+                    this.setState({
+                        isLoaded: true,
+                        error
+                    });
+                    console.log(error);
+                }
+            )
+    }
 
     render(){
 
@@ -43,7 +64,7 @@ class Home extends Component
 
                         </div>
                         <div className="col-12 col-sm-10 col-md-10 col-lg-6 panel-login">
-                            {!this.state.login ? <Login managers={this.state.maganers} checkIfLoged={this.state.login} changeParentLogin={this.changeloger}/> : <Table td={NUMBERS}/>}
+                            {!this.state.login ? <Login checkIfLoged={this.state.login} changeParentLogin={this.changeloger}/> : <Table data={this.state.maganers}/>}
                         </div>
                         <div className="col-12 col-sm-1 col-md-1 col-lg-3">
 
