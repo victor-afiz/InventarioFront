@@ -30,7 +30,7 @@ class Home extends Component
 
     componentDidMount() {
 
-        fetch("/Manager/delete/?id=4",{method: 'GET'})
+        fetch("/Manager/",{method: 'GET'})
             .then(res => res.json())
             .then(
                 (res) => {
@@ -49,54 +49,7 @@ class Home extends Component
             );
     }
 
-    handleOnSubmitPost(e) {
-
-        const checkStatus = response => {
-            const hasError = (response.status < 200 || response.status >= 300)
-            if (hasError) {
-                console.log(response.text());
-            }else {
-                console.log('ok');
-            }
-            return response;
-        };
-
-
-        fetch('/Manager/delete/', {
-            method: 'POST',
-            body: JSON.stringify({
-                id: '1',
-                // nickName :"5ref5",
-                // name : "DSdFG",
-                // photo : "DdSF",
-                // rolID : "2",
-                // password : "DdSFG",
-                // email : "DDD@DFG.DF"
-            })
-        }).then(checkStatus).catch(err => {
-            console.log(err)
-        });
-    }
-    handleOnSubmitGet(e) {
-
-        const checkStatus = response => {
-            const hasError = (response.status < 200 || response.status >= 300)
-            if (hasError) {
-                console.log(response.text());
-            }else {
-                console.log(response.json());
-            }
-            return response;
-        };
-
-
-        fetch("/Manager/delete/?id=4",{method: 'GET'})
-            .then(checkStatus)
-            .catch(err => {
-                console.log(err)
-            });
-    }
-    render(){
+render(){
 
         return (
             <div className="Home">
