@@ -105,7 +105,7 @@ class Home extends Component
 
                 {this.state.login ? <Menu/> : ""}
 
-                <p className="Home-intro">
+                <div className="Home-intro">
                     <div className="row panel">
                         <div className="col-12 col-sm-1 col-md-1 col-lg-3">
 
@@ -117,7 +117,7 @@ class Home extends Component
 
                         </div>
                     </div>
-                </p>
+                </div>
             </div>
         );
     }
