@@ -1,36 +1,13 @@
-.Login{
-    width: 400px;
+#foto-dentro {
+    position: relative;
+    margin: auto;
+    width: 3rem;
 }
-.Empleado{
-    border-top-width: 5px !important;
-    border-top: solid;
-    border-top-color: #6c757d !important;
+
+#centro{
+    position: relative;
+    margin: auto;
 }
-.Empleado:focus{
-    border-top-color: #ed6003 !important;
-    border-top-width: 5px ;
-}
-.Gestor{
-    border-top-width: 5px ;
-    border-top: solid;
-    border-top-color: #6c757d !important;
-}
-.Gestor:focus{
-    border-top-color: #ed6003 !important;
-    border-top-width: 5px ;
-}
-input{
-    background-color: gainsboro !important;
-}
-input:focus{
-    border-color: #ed6003 !important;
-    box-shadow: 0 0 5px rgba(207, 220, 0, 0.4) !important;
-}
-.tab-content,nav-tabs{
-    background-color: white !important;
-}
-@media screen and (max-width: 500px) {
-    .Login {
-        width: auto;
-    }
+#pequenho{
+    max-width: 4rem;
 }
