@@ -4,9 +4,6 @@ import './Home.css';
 import Login from '../Login/Login';
 import Menu from '../Menu/Menu';
 import Table from '../Table/Table';
-
-
-
 class Home extends Component
 {
 
@@ -23,14 +20,10 @@ class Home extends Component
         console.log(this.state.login);
     };
 
-    setManager = (managers) => {
-        this.setState({maganers : managers});
-        console.log(this.state.maganers);
-    };
-
     componentDidMount() {
 
-        fetch("/Manager/",{method: 'GET'})
+
+        fetch("/Manager/", {method: 'GET'})
             .then(res => res.json())
             .then(
                 (res) => {
@@ -46,8 +39,11 @@ class Home extends Component
                     });
                     console.log(error);
                 }
-            );
+            )
+
     }
+
+
 
 render(){
 

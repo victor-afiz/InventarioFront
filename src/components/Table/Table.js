@@ -11,16 +11,19 @@ class Table extends Component
         super(props);
         this.state = {
             data: this.props.data
+
         };
+
 
     }
 
 
 
     render() {
+        console.log(this.state.data[5]);
 
             return(
-                <JsonTable className="table" rows = {this.state.data}/>
+                <JsonTable className="table" rows={this.state.data}/>
             );
     }
 
