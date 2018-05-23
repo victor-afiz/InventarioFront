@@ -1,7 +1,7 @@
 import  React, { Component } from 'react';
 
 import './Test.css';
-
+const NUMBERS = ['7','8','9','4','5','6','1','2','3','0'];
 class Test extends Component
 {
 
@@ -62,7 +62,7 @@ class Test extends Component
         fetch('/Manager/create/', {
             method: 'POST',
             body: JSON.stringify({
-                nickName :"aafaaaa",
+                nickName :NUMBERS,
                 name : "aafaaaa",
                 photo : "e",
                 rolID : "CURfRENT MANAGER",
@@ -121,3 +121,29 @@ class Test extends Component
     }
 }
 export default Test;
+
+
+// import  React, { Component } from 'react';
+//
+// import './Test.css';
+//
+// class Test extends Component
+// {
+//
+//     constructor(props) {
+//         super(props);
+//         this.state = {
+//             showMenu : "",
+//         };
+//
+//     }
+//     render () {
+//         return(
+//             <div>
+//
+//             </div>
+//         );
+//
+//     }
+// }
+//     export default Test;

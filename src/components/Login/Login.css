@@ -1,6 +1,10 @@
 .Login{
     width: 400px;
 }
+.radius{
+    border-bottom-left-radius: 0.6rem !important;
+    border-bottom-right-radius: 0.6rem !important;
+}
 .Empleado{
     border-top-width: 5px !important;
     border-top: solid;

@@ -13,7 +13,9 @@ class Login extends Component
             checkIfLoged: this.props.checkIfLoged,
             changeParentLogin: "",
             email: "",
-            password: ""
+            password: "",
+            showLogin: true
+
         };
         this.handleToggleClick = this.handleToggleClick.bind(this);
         this.handleToggleChangeUser = this.handleToggleChangeUser.bind(this);
@@ -23,9 +25,11 @@ class Login extends Component
 
     }
 
-    handleChangeParentLoginResult = (event) =>{
-        const change =this.props.checkIfLoged ? false : true;
-        this.props.changeParentLogin( change );
+    handleChangeParentLoginResult = () =>{
+        this.setState({showLogin: this.props.checkIfLoged});
+        this.props.changeParentLogin(this.state.showLogin);
+        // console.log("login",this.props.checkIfLoged);
+        // console.log("login",this.state.showLogin);
     };
 
     handleToggleClick() {
@@ -55,27 +59,28 @@ class Login extends Component
         console.log(this.state.password);
     }
     render() {
+        if(this.state.showLogin) {
             return(
                 <div className="container  Login">
 
                     <ul className="nav nav-tabs">
 
-                        <li className="nav-item" onClick={this.handleToggleChangeUser} >
-                            <a className="nav-link active Empleado" data-toggle="tab" href="#menu1">Empleado</a>
+                        <li className="nav-item " onClick={this.handleToggleChangeUser} >
+                            <a className="nav-link active Empleado" data-toggle="tab" >Empleado</a>
                         </li>
                         <li className="nav-item" onClick={this.handleToggleClick}>
-                            <a className="nav-link Gestor" data-toggle="tab" href="#menu2">Gestor</a>
+                            <a className="nav-link Gestor" data-toggle="tab" >Gestor</a>
                         </li>
                     </ul>
-                    <div className="tab-content">
+                    <div className="tab-content radius">
                         <br/>
-                        <div id="menu1" className="container tab-pane active form-group">
+                        <div  className="container tab-pane active form-group ">
                             <form className="forum" onSubmit={this.handleSubmit} >
                                 <input type="email" value={this.state.email} onChange={this.handleChange} className="form-control" placeholder="Email*" id="email" name="email"/>
                                 <br/>
                                 <input type="password"  value={this.state.password} onChange={this.handleChange} className="form-control" placeholder="Contraseña*" name="password" />
                                 <br/>
-                                <button type="submit" onClick={this.handleChangeParentLoginResult} className="btn btn-warning btn-lg btn-block">Entrar</button>
+                                <button type="button" onClick={this.handleChangeParentLoginResult} className="btn btn-warning btn-lg btn-block">Entrar</button>
                                 <br/>
                             </form>
                         </div>
@@ -83,6 +88,9 @@ class Login extends Component
                     </div>
                 </div>
             );
+        }else {
+           return null
+        }
     }
 }
 export default Login;
