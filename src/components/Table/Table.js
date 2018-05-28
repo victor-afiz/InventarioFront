@@ -2,24 +2,28 @@ import  React, { Component } from 'react';
 
 import './Table.css';
 import Modal from '../Modal/Modal';
-
+import EditManager from '../EditManager/EditManager';
 class Table extends Component
 {
     constructor(props) {
         super(props);
-        let man = "";
 
         this.state = {
-            data: this.props.data,
-            show: true,
+            data: "",
+            EditManager: false,
+            SelectedManagerData: null,
             deletModal: "deletManager",
             managerSelectedID: '',
             modalMessage: '',
-            deletManager: false
+            deletManager: false,
+            back: true
         };
-        this.setState({show: this.props.show});
-        console.log("table",this.props.show);
-        console.log('0e');
+
+
+    }
+
+    handleGetManagers = () => {
+
         fetch("/Manager/", {method: 'GET'})
             .then(res => res.json())
             .then(
@@ -34,8 +38,8 @@ class Table extends Component
                         error
                     });
                 }
-            )
-    }
+            );
+    };
 
     handleSetSelectedManager = (value) =>{
             const managerSelected = JSON.parse(value.target.name);
@@ -51,13 +55,24 @@ class Table extends Component
             }
     };
 
+    handleEditManager = (value) => {
+        const managerSelected = JSON.parse(value.target.name);
+        this.setState({
+            EditManager: true,
+            back: false
+        });
+        this.setState({SelectedManagerData: managerSelected});
+    };
+
     handleDeletSelectedManager = () =>{
+
         console.log(this.state.managerSelectedID)
         fetch('/Manager/delete/', {
             method: 'POST',
             body: JSON.stringify({
                 id : this.state.managerSelectedID
             })
+
         }).then().catch(err => {
             console.log(err)
         });
@@ -65,51 +80,65 @@ class Table extends Component
 
 
     render() {
+    this.handleGetManagers();
 
-        if(this.state.show){
-            return(
+        if(this.state.data && this.state.back){
 
-                <div>
-                     <Modal ModalTitle={"Eliminar Manager "} Operation={this.handleDeletSelectedManager} ModalDescription={this.state.modalMessage} dataTarget={this.state.deletModal}/>
-                    <table className="table table-striped">
-                        <thead>
-                        <tr>
-                            <th className="text-center">Photo</th>
-                            <th>NickName</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th></th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {this.state.data.map((value) =>
-                            <tr key={value.ID}>
-                            <td>
-                                <div id="foto-dentro">
-                                    <img alt='img' src={value.Photo} className="rounded img-fluid"/>
-                                </div>
-                            </td>
-                            <td hidden>{value.ID}</td>
-                            <td>{value.NickName}</td>
-                            <td>{value.Name}</td>
-                            <td>{value.Email}</td>
-                            <td id="pequenho">
-                                <div className="row">
-                                    <div className="col-6">
-                                        <button type="button"  data-toggle="modal" data-target={'#'+this.state.deletModal} className="btn centro fas fa-user-edit"></button>
-                                    </div>
-                                    <div className="col-6">
+                // console.log(this.state.EditManager);
+                // return (
+                //     <EditManager/>
+                // );
+
+                return(
+
+                    <div>
+
+                        <Modal ModalTitle={"Eliminar Manager "} Operation={this.handleDeletSelectedManager} ModalDescription={this.state.modalMessage} dataTarget={this.state.deletModal}/>
+                        <table className="table ">
+                            <thead>
+                            <tr>
+                                <th className="text-center">Photo</th>
+                                <th>NickName</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th> </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {this.state.data.map((value) =>
+
+                                <tr key={value.ID}>
+                                    <td>
+                                        <div id="foto-dentro">
+                                            <img alt='img' src={value.Photo} className="rounded img-fluid"/>
+                                        </div>
+                                    </td>
+                                    <td hidden>{value.ID}</td>
+                                    <td>{value.NickName}</td>
+                                    <td>{value.Name}</td>
+                                    <td>{value.Email}</td>
+                                    <td >
+                                        <button type="button"  onClick={this.handleEditManager}  name={JSON.stringify(value)}   data-target={'#'+this.state.deletModal} className="btn centro fas fa-user-edit"></button>
+
                                         <button type="button"  data-toggle="modal" onClick={this.handleSetSelectedManager} name={JSON.stringify(value)}   data-target={'#'+this.state.deletModal} className="btn btn-danger centro fas fa-trash-alt"></button>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>)}
-                        </tbody>
-                    </table>
 
+                                    </td>
+                                </tr>)}
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                );
+
+
+        }else if (this.state.EditManager) {
+            return(
+                <div>
+                <EditManager ManagerSelected={this.state.SelectedManagerData}/>
                 </div>
-
-            );
+            )
         }else {
             return null;
         }

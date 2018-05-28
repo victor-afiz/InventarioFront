@@ -8,6 +8,27 @@
     position: relative;
     margin: auto;
 }
-#pequenho{
-    max-width: 4rem;
+
+table{
+    background-color: white !important;
+    box-shadow: 5px 10px 8px 3px #888888;
 }
+
+thead{
+    color: #ed6003;
+    font-size: 1rem;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+tbody{
+    background-color: #eff0f1;
+}
+
+button{
+    margin: 0.1rem !important;
+}
+tr:hover{
+    background-color: silver !important;
+}
+
+

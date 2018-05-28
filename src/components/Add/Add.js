@@ -22,7 +22,6 @@ class Add extends Component{
 
                     );
                     this.setState({allRols: listItems});
-                    //CURRENT_MANAGER
                 },
                 (error) => {
                     console.log(error);

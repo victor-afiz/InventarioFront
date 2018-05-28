@@ -22,7 +22,7 @@ function ShowComponents(props) {
             console.log("Oranges are $0.59 a pound.");
             return (
                 <div >
-                    <Table show={props.show.ShowTableManager} data={props.show.Managers}/>
+                    <Table show={props.show.ShowTableManager} />
                 </div>
             );
             break;
@@ -75,7 +75,7 @@ class Home extends Component
     };
 
 render(){
-
+    console.log("hola");
         return (
             <div className="Home">
                 <header className="Home-header">
