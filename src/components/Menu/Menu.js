@@ -16,7 +16,8 @@ class Menu extends Component
             showMenu: false
         }
     }
-    handleOperation = (valor) =>{
+    handleOperation = (valor) =>
+    {
         let ElementSelected= valor.target.innerText;
         this.props.menuSelected(ElementSelected);
     };
@@ -36,8 +37,6 @@ class Menu extends Component
                                 </a>
                                 <div className="dropdown-menu">
                                     <a className="dropdown-item" onClick={this.handleOperation} >Añadir Gestor Nuevo</a>
-                                    <a className="dropdown-item" onClick={this.handleOperation} >Modificar Gestor</a>
-                                    <a className="dropdown-item" onClick={this.handleOperation} >Eliminar Gestor</a>
                                     <a className="dropdown-item" onClick={this.handleOperation} >Listado Gestores</a>
                                 </div>
                             </li>
@@ -47,8 +46,6 @@ class Menu extends Component
                                 </a>
                                 <div className="dropdown-menu">
                                     <a className="dropdown-item" onClick={this.handleOperation} >Añadir Prenda Nuevo</a>
-                                    <a className="dropdown-item" onClick={this.handleOperation} >Modificar Prenda</a>
-                                    <a className="dropdown-item" onClick={this.handleOperation} >Eliminar Prenda</a>
                                     <a className="dropdown-item" onClick={this.handleOperation} >Listado Prendas</a>
                                 </div>
                             </li>
@@ -58,8 +55,6 @@ class Menu extends Component
                                 </a>
                                 <div className="dropdown-menu">
                                     <a className="dropdown-item" onClick={this.handleOperation} >Nuevo Pedido</a>
-                                    <a className="dropdown-item" onClick={this.handleOperation} >Modificar Pedido</a>
-                                    <a className="dropdown-item" onClick={this.handleOperation} >Eliminar Pedido</a>
                                     <a className="dropdown-item" onClick={this.handleOperation} >Listado Pedidos</a>
                                 </div>
                             </li>
@@ -78,8 +73,6 @@ class Menu extends Component
                                 </a>
                                 <div className="dropdown-menu">
                                     <a className="dropdown-item" onClick={this.handleOperation} >Añadir Usuario</a>
-                                    <a className="dropdown-item" onClick={this.handleOperation} >Modificar Usuario</a>
-                                    <a className="dropdown-item" onClick={this.handleOperation} >Eliminar Usuario</a>
                                     <a className="dropdown-item" onClick={this.handleOperation} >Listado Usuario</a>
                                 </div>
                             </li>

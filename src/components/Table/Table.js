@@ -18,12 +18,10 @@ class Table extends Component
             deletManager: false,
             back: true
         };
-
-
     }
 
-    handleGetManagers = () => {
-
+    componentDidMount = () =>
+    {
         fetch("/Manager/", {method: 'GET'})
             .then(res => res.json())
             .then(
@@ -41,21 +39,18 @@ class Table extends Component
             );
     };
 
-    handleSetSelectedManager = (value) =>{
+    handleSetSelectedManager = (value) =>
+    {
             const managerSelected = JSON.parse(value.target.name);
-
             this.setState({
                 modalMessage: "Esta seguro de que desea eliminar a: "+managerSelected.Name,
                 managerSelectedID: managerSelected.ID
             });
-
             console.log(this.state.modalMessage);
-            if(this.state.deletManager) {
-
-            }
     };
 
-    handleEditManager = (value) => {
+    handleEditManager = (value) =>
+    {
         const managerSelected = JSON.parse(value.target.name);
         this.setState({
             EditManager: true,
@@ -64,8 +59,8 @@ class Table extends Component
         this.setState({SelectedManagerData: managerSelected});
     };
 
-    handleDeletSelectedManager = () =>{
-
+    handleDeletSelectedManager = () =>
+    {
         console.log(this.state.managerSelectedID)
         fetch('/Manager/delete/', {
             method: 'POST',
@@ -76,18 +71,14 @@ class Table extends Component
         }).then().catch(err => {
             console.log(err)
         });
+        this.componentDidMount();
     };
 
 
     render() {
-    this.handleGetManagers();
+
 
         if(this.state.data && this.state.back){
-
-                // console.log(this.state.EditManager);
-                // return (
-                //     <EditManager/>
-                // );
 
                 return(
 
@@ -140,7 +131,22 @@ class Table extends Component
                 </div>
             )
         }else {
-            return null;
+            return (
+                <table className="table ">
+                    <thead>
+                    <tr>
+                        <th className="text-center">Photo</th>
+                        <th>NickName</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th> </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+
+            );
         }
 
     }

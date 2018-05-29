@@ -9,7 +9,8 @@ import Add from  '../Add/Add'
 
 function ShowComponents(props) {
     let MenuElement = props.show.MenuElementSelected;
-    switch (MenuElement) {
+    switch (MenuElement)
+    {
         case "Añadir Gestor Nuevo":
 
             return (
@@ -19,22 +20,67 @@ function ShowComponents(props) {
             );
             break;
         case "Listado Gestores":
-            console.log("Oranges are $0.59 a pound.");
             return (
                 <div >
                     <Table show={props.show.ShowTableManager} />
                 </div>
             );
             break;
-        case "Bananas":
-            console.log("Bananas are $0.48 a pound.");
+        case "Añadir Prenda Nuevo":
+            return (
+                <div>
+                    <Add ButtonText={"Añadir"} />
+                </div>
+            );
             break;
-        case "Cherries":
-            console.log("Cherries are $3.00 a pound.");
+        case "Listado Prendas":
+            return (
+                <div >
+                    <Table show={props.show.ShowTableManager} />
+                </div>
+            );
             break;
-        case "Mangoes":
-        case "Papayas":
-            console.log("Mangoes and papayas are $2.79 a pound.");
+        case "Nuevo Pedido":
+            return (
+                <div >
+                    <Table show={props.show.ShowTableManager} />
+                </div>
+            );
+            break;
+        case "Listado Pedidos":
+            return (
+                <div >
+                    <Table show={props.show.ShowTableManager} />
+                </div>
+            );
+            break;
+        case "Añadir Stock":
+            return (
+                <div>
+                    <Add ButtonText={"Añadir"} />
+                </div>
+            );
+            break;
+        case "Listado Stock":
+            return (
+                <div >
+                    <Table show={props.show.ShowTableManager} />
+                </div>
+            );
+            break;
+        case "Añadir Usuario":
+            return (
+                <div>
+                    <Add ButtonText={"Añadir"} />
+                </div>
+            );
+            break;
+        case "Listado Usuario":
+            return (
+                <div >
+                    <Table show={props.show.ShowTableManager} />
+                </div>
+            );
             break;
         default:
             return (
@@ -42,7 +88,6 @@ function ShowComponents(props) {
 
                 </div>
             );
-            console.log("Sorry, we are out of " + props + ".");
     }
 
 }
@@ -52,7 +97,8 @@ class Home extends Component
 
     constructor(props) {
         super(props);
-        this.state = {
+        this.state =
+        {
             login : false,
             Managers : "",
             MenuElementSelected: "",
@@ -61,28 +107,26 @@ class Home extends Component
         };
     }
 
-    ShowMenuElementSelected = (MenuElement) => {
+    ShowMenuElementSelected = (MenuElement) =>
+    {
             console.log(MenuElement);
             this.setState({MenuElementSelected: MenuElement})
-
-
-
     };
 
-    changeloger = (bol) => {
+    changeloger = (bol) =>
+    {
         this.setState({login : bol});
         console.log("estado final",this.state.login);
     };
 
 render(){
-    console.log("hola");
+
         return (
             <div className="Home">
                 <header className="Home-header">
                 </header>
 
                 {this.state.login ? < Menu showMenu={this.state.ShowMenu} menuSelected={this.ShowMenuElementSelected} /> : null}
-
                 <div className="Home-intro">
                     <div className="row panel">
                         <div className="col-12 col-sm-1 col-md-1 col-lg-3">
@@ -91,11 +135,7 @@ render(){
                         <div className="col-12 col-sm-10 col-md-10 col-lg-6 panel-login">
 
                             <Login checkIfLoged={this.state.login} changeParentLogin={this.changeloger}/>
-                            {/*<Table show={this.state.ShowTableManager} data={this.state.Managers}/>*/}
-                            {/*<Child callback={this.childCallback()}/>*/}
-                            {/*< Test showMenu={this.state.login} />*/}
                             <ShowComponents show={this.state}/>
-
                             </div>
                         <div className="col-12 col-sm-1 col-md-1 col-lg-3">
                         </div>

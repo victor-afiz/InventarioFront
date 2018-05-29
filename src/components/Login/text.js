@@ -39,3 +39,6 @@ ReactDOM.render(
     <Page />,
     document.getElementById('root')
 );
+{/*<Table show={this.state.ShowTableManager} data={this.state.Managers}/>*/}
+{/*<Child callback={this.childCallback()}/>*/}
+{/*< Test showMenu={this.state.login} />*/}

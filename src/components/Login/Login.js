@@ -17,34 +17,39 @@ class Login extends Component
             showLogin: true
 
         };
-        this.handleToggleClick = this.handleToggleClick.bind(this);
-        this.handleToggleChangeUser = this.handleToggleChangeUser.bind(this);
-        this.handleChangeParentLoginResult = this.handleChangeParentLoginResult.bind(this);
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+
+        // this.handleToggleClick = this.handleToggleClick.bind(this);
+        // this.handleToggleChangeUser = this.handleToggleChangeUser.bind(this);
+        // this.handleChangeParentLoginResult = this.handleChangeParentLoginResult.bind(this);
+        // this.handleChange = this.handleChange.bind(this);
+        // this.handleSubmit = this.handleSubmit.bind(this);
 
     }
 
-    handleChangeParentLoginResult = () =>{
+    handleChangeParentLoginResult = () =>
+    {
         this.setState({showLogin: this.props.checkIfLoged});
         this.props.changeParentLogin(this.state.showLogin);
         // console.log("login",this.props.checkIfLoged);
         // console.log("login",this.state.showLogin);
     };
 
-    handleToggleClick() {
+    handleToggleClick = () =>
+    {
         this.setState(prevState => ({
             checkIfLoged: !prevState.checkIfLoged
         }));
     }
 
-    handleToggleChangeUser(){
+    handleToggleChangeUser = () =>
+    {
         this.setState(whoisLogin => ({
             whoisLog: !whoisLogin.whoisLog
         }));
     }
 
-    handleChange (e) {
+    handleChange = (e) =>
+    {
         const name = e.target.name;
         const value = e.target.value;
         this.setState({
@@ -54,10 +59,11 @@ class Login extends Component
         console.log(this.state.password);
     };
 
-    handleSubmit(event) {
+    handleSubmit = (event) =>
+    {
         console.log(this.state.email);
         console.log(this.state.password);
-    }
+    };
     render() {
         if(this.state.showLogin) {
             return(
