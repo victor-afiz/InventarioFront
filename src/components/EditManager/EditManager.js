@@ -47,7 +47,6 @@ class EditManager extends Component
         });
         console.log(this.state.Email);
         console.log(this.state.password);
-
     };
 
     handleonFormSubmit = (e) =>
@@ -89,7 +88,7 @@ class EditManager extends Component
 
                         </div>
                         <div className="col-10" >
-                            <h3>Añadir Gestor</h3>
+                            <h3>Editar Gestor</h3>
                             <form className="forum">
                                 <label>Nombre:</label> <input type="text" value={this.state.Name} onChange={this.handleChange} className="form-control" placeholder={this.props.ManagerSelected.Name}  name="Name"/>
                                 <br/>
@@ -98,6 +97,7 @@ class EditManager extends Component
                                 <label>Foto:</label>  <input type="file" onChange={this.onChange} />
                                 <br/>
                                 <label>Rol</label>
+                                <br/>
                                 <select className="form-control" >
                                     {this.state.allRols}
                                 </select>
